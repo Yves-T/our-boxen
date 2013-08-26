@@ -41,4 +41,11 @@ class people::yves_t {
 		target => "$dotfiles_dir/oh-my-zsh",
 		require => Repository[$dotfiles_dir]
 	}
+
+	file { "$my_homedir/.zshrc":
+		ensure => link,
+		mode   => '0644',
+		target => "$dotfiles_dir/zshrc",
+		require => Repository[$dotfiles_dir]
+	}
 }
